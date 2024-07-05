@@ -7,6 +7,7 @@ const { validateMovie, validatePartialMovie } = require('./Schemas/movies')
 
 const app = express()
 app.use(express.json()) // Middleware
+
 app.use(cors({
   origin: (origin, callback) => {
     const ACCEPTED_ORIGINS = [
@@ -22,6 +23,9 @@ app.use(cors({
     return callback(new Error('Not allowed by CORS'))
   }
 })) // Middleware
+
+//app.use(cors())
+
 app.disable('x-powered-by') // deshabilitar el header X-Powered-By: Express
 
 // Todos los recursos que sean MOVIES se idenfica con /movies
